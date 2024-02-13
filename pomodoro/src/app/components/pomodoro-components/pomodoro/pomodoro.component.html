@@ -1,0 +1,30 @@
+<audio #audioPlayer
+       id="audioPlayer"
+       [src]="'../../../../assets/audio/timbre-colegio.mp3'"
+       >
+</audio>
+
+<div class="pomodoro-clock d-flex align-items-center">
+    <div class="pomo-times">
+      <strong>{{ formatTime(pomodoroMinutesCicle) }}</strong>
+    </div>
+    <div class="pomo-times">
+      <strong>:</strong>
+    </div>
+    <div class="pomo-times">
+      <strong>{{ formatTime(segundos) }}</strong>
+    </div>
+</div>
+
+<div class="w-100 d-flex justify-content-center">
+    <button class="btn btn-outline-light d-flex align-items-center m-1" 
+            style="font-size: 40pt;"
+            (click)="startTimer()">
+            <strong> {{actionbutton}} </strong>
+    </button>
+    <button class="btn btn-outline-light d-flex align-items-center m-1"
+            (click)="reedirigir()"
+            style="font-size: 40pt;">
+            <mat-icon >skip_next</mat-icon>
+    </button>
+</div>

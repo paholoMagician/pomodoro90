@@ -1,0 +1,75 @@
+<div class="box-tasks d-flex flex-column align-items-center mt-2">
+    <div>
+        <span class="fs-5"> Ciclos del pomodoro: <strong> {{count}} /  {{ cicloCount }} </strong> </span>
+    </div>
+    
+    <div class="add-tasks mt-2 d-flex justify-content-start align-items-center">
+        <div class="menu-btn" 
+            (click)="menu.toggle($event)"
+            style="padding: 10px; border-radius: 5px; background-color: rgba(0, 0, 0, 0.525); color: whitesmoke;">
+            <mat-icon>more_vert</mat-icon>
+            <p-menu #menu [model]="items" [popup]="true"></p-menu>
+        </div>
+        &nbsp;&nbsp;
+        <div class="fs-6">
+            <strong> Tarea cumpliendo actualmente: <strong class="text-light" > {{ tarea | uppercase }} </strong> </strong>
+        </div>
+    </div>
+
+    <div class="tasks-box" *ngIf="_disabled_tasks">
+
+        <form [formGroup]="tasksForm" (ngSubmit)="submit()">
+
+            <div class="w-100" style="text-align: center;">
+                <label for="nombreTasks" class="fs-6">
+                    ¿En que estas trabajando?
+                </label>
+                <input class="form-control mt-1 rounded-pill p-3 fs-4"
+                       style="font-weight: bold; color: #7d7d7d;"
+                       formControlName="nombreTasks"
+                       #nombreTasks
+                       id="nombreTasks">
+            </div>
+
+            <div class="mt-2" style="text-align: center;">
+                <label for="descripcionTasks" class="fs-6">
+                    Descripción del trabajo:
+                </label>
+                <textarea class="form-control mt-1 rounded-4 p-3 fs-5"
+                          style="font-weight: bold; color: #7d7d7d;"
+                          formControlName="descripcionTasks"
+                          #descripcionTasks
+                          id="descripcionTasks">
+                </textarea>
+            </div>
+
+            <div class="d-flex justify-content-between align-items-end">
+
+                <div class="mt-2">
+                    <label for="ciclo" class="fs-6">
+                        Cantidad de pomodoros:
+                    </label>
+                    <input class="form-control mt-1 rounded-3 p-3 fs-4"
+                           style="font-weight: bold; color: #7d7d7d; width: 110px;" 
+                           formControlName="ciclo"
+                           #ciclo
+                           type="number"
+                           id="ciclo">
+                </div>
+
+                <div class="d-flex">
+                    <button class="btn-accept-settings d-flex align-items-center fs-3 rounded-3"
+                            style="background-color: red; color: white;"
+                            (click)="limpiar()">
+                            <mat-icon>cancel</mat-icon>
+                    </button>
+                    <button class="btn-accept-settings d-flex align-items-center fs-3 rounded-3" style="background-color: rgb(117, 206, 48); color: rgb(23, 23, 23);">
+                        <mat-icon>add_circle</mat-icon> &nbsp; <strong> {{action_btn}} tarea </strong>
+                    </button>
+                </div>
+                
+            </div>
+        </form>
+
+    </div>
+</div>

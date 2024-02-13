@@ -1,0 +1,94 @@
+<div class="moduleWork d-flex flex-column align-items-center p-3"
+     [style]="'background: ' + colorBg + '; height: 100%; transition: ease all 0.5s;'">
+     <div class="w-75 m-3 rounded-4 p-2"
+          style="background-color: rgba(0, 0, 0, 0.096);
+                 border: groove 2px rgba(204, 226, 206, 0.463);">
+                <app-navside (nPomo)="minutosPomodoro($event)"
+                             (nSBreak)="shortBreakminutosPomodoro($event)"
+                             (nLBreak)="largeBreakminutosPomodoro($event)"
+                             (aPom)="autoPomodoroEmit($event)"
+                             (aBre)="breakPomodoroEmit($event)"
+                             >
+                </app-navside>
+     </div>
+     <div class="pomodoro-btn d-flex flex-column align-items-center mb-4">
+
+        <div class="d-flex justify-content-around m-3">
+            <button class="buttons-systems d-flex align-items-center m-1"
+                    (click)="setActiveButton('pomodoro')"
+                    [class.active]="activeButton === 'pomodoro'">
+                    <span class="fs-5">Pomodoro</span>
+            </button>
+            <!-- (click)="setActiveButton('shortBreak')" -->
+            <button class="buttons-systems d-flex align-items-center m-1"
+                    [class.active]="activeButton === 'shortBreak'">
+                    <span class="fs-5">Short-break</span>
+            </button>
+            <button class="buttons-systems d-flex align-items-center m-1"
+                    (click)="setActiveButton('longBreak')"
+                    [class.active]="activeButton === 'longBreak'">
+                    <span class="fs-5">Long-break</span>
+            </button>
+        </div>
+          
+        <div class="m-2">
+            <app-pomodoro (finishPomodoroEvent)="handleFinishPomodoro($event)"
+                          [minPOM]="pomMin" 
+                          [autoPomodoroListen]="pomoEmitAutoStart" 
+                          *ngIf="pomodoro_view">
+            </app-pomodoro>
+            <app-short-break (finishPomodoroShortBreakEvent)="handleFinishPomodoro($event)"
+                             (cicloCountActual)="tomaCicloActua($event)"
+                             (dataTasksActualicer)="captureDatForTasks($event)"
+                             [autoShortListen]="breakEmitAutoStart" 
+                             [minShortB]="shBrMin" 
+                             *ngIf="short_break_view">
+            </app-short-break>
+            <app-long-break  (finishLongBreakEvent)="handleFinishPomodoro($event)"
+                             (cicloCountActual)="tomaCicloActua($event)"
+                             (dataTasksActualicer)="captureDatForTasks($event)"
+                             [autoLongtListen]="breakEmitAutoStart" 
+                             [lonShortB]="laBrMin"
+                             *ngIf="long_break_view">
+            </app-long-break>
+        </div>
+
+        <div class="tasks-list">
+            <app-tasks [cicloListen]="cicloActuaDash"
+                       [datatasksListen]="datatasks">
+            </app-tasks>
+        </div>
+
+     </div>
+
+     <div class="reglas-pomodoro mt-4 p-4" style="">
+        <div class="fs-4">
+            <strong>¿Qué es la técnica de pomodoro?</strong>
+        </div>
+        <br>
+        <div class="fs-5 mt-1" style="text-align: justify;">
+            La técnica Pomodoro es un método de gestión de tiempo que sugiere trabajar en intervalos de 25 minutos, sin interrupción ni distracciones, y añadir tiempos de descanso de 5 minutos. Su objetivo es establecer metas y mejorar la productividad.
+        </div>
+        <br>
+        <div class="fs-4 mt-2">
+            <strong>¿Como utilizar la técnica del pomodoro?</strong>
+        </div>
+        <br>
+        <div class="fs-5 mt-1" style="text-align: justify;">
+            <ol>
+                <li>
+                    Toma una tarea de la lista de tareas que desees realizar e inicia el temporizador.
+                </li>
+                <li class="mt-2">
+                    <div class="mt-1"> En el botón de configuraciones situado en la parte superior, podrás elegir el tiempo del pomodoro o de realización del trabajo, y los tiempos de descanso.</div>
+                    <div class="mt-1">Despues de cada pomodoro debe haber un descanso corto de <strong> 5 a 10 min. </strong></div>
+                    <div class="mt-1">Y recuerda que cada 4 intervalos de pomodoros hay un tiempo de descanso largo, el mismo que deberia oscilar entre <strong> 15 a 20 min. </strong></div>
+                </li>
+                <li class="mt-2">
+                    De esta manera pouedes ir modificando tus tiempos de concentración en la tarea que te asignes y a su vez los tiempos de descanso. <strong> Recuerda ser honesto contigo mismo. </strong>
+                </li>
+            </ol>
+        </div>
+     </div>
+
+</div>
