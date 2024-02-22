@@ -28,22 +28,16 @@ export class ModalConfiguracionesComponent implements OnInit {
     this.timerForm.controls['numShortBreak'].setValue(xnSBreak);
     let xpnom: any    = localStorage.getItem('nPomo');
     this.timerForm.controls['numPomodoro'].setValue(xpnom);
-    // let xAutoPom: any    = localStorage.getItem('aPom');
-    // this.timerForm.controls['autoPom'].setValue(xAutoPom);
-    // console.log(xAutoPom)
-    // let xAutoBreak: any    = localStorage.getItem('aBre');
-    // console.log(xAutoBreak)
-    // this.timerForm.controls['autoBreak'].setValue(xAutoBreak);
     let xAutoPom: any = localStorage.getItem('aPom');
     this.timerForm.controls['autoPom'].setValue(xAutoPom === 'true');
     let xAutoBreak: any = localStorage.getItem('aBre');
-    this.timerForm.controls['autoBreak'].setValue(xAutoBreak === 'true')
+    this.timerForm.controls['autoBreak'].setValue(xAutoBreak === 'true');
   }
+
   constructor( public dialog: MatDialog,
     @Inject(MAT_DIALOG_DATA) public data: any,
     private env: Environments,
     public dialogRef: MatDialogRef<NavsideComponent>) {}
-
 
     submitTimer() {}
 

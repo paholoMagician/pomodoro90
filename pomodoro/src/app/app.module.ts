@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { componentModule } from './components-module/components.module';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { ModalConfiguracionesComponent } from './components/shared/modals/modal-configuraciones/modal-configuraciones.component';
+import { LoginModalComponent } from './components/dashboard/login-modal/login-modal.component';
 
 @NgModule({
   
@@ -14,8 +15,7 @@ import { ModalConfiguracionesComponent } from './components/shared/modals/modal-
     AppComponent
   ],
 
-  imports: [
-    
+  imports: [    
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,

@@ -1,0 +1,93 @@
+{
+  "configVersion": 1,
+  "timestamp": 1707870992018,
+  "index": "/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/favicon.ico",
+        "/index.html",
+        "/main.afbd7a0147871022.js",
+        "/manifest.webmanifest",
+        "/polyfills.5569cdca7c83d3e2.js",
+        "/runtime.b58fb086490cf3ff.js",
+        "/styles.40ee1725a23eabf8.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/assets/audio/timbre-casa.mp3",
+        "/assets/audio/timbre-colegio.mp3",
+        "/assets/audio/timbre-escuela-japonesa.mp3",
+        "/assets/icons/icon-128x128.png",
+        "/assets/icons/icon-144x144.png",
+        "/assets/icons/icon-152x152.png",
+        "/assets/icons/icon-192x192.png",
+        "/assets/icons/icon-384x384.png",
+        "/assets/icons/icon-512x512.png",
+        "/assets/icons/icon-72x72.png",
+        "/assets/icons/icon-96x96.png",
+        "/assets/img/pomodoro.png",
+        "/color.dae87a04d07ca92b.png",
+        "/hue.8b1818380241e6ac.png"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "/assets/audio/timbre-casa.mp3": "38260c174cf9dced8bd6d3c707f315cdb1b9d1f9",
+    "/assets/audio/timbre-colegio.mp3": "68ee8ee58c908a32954bf971b462f4e41b3fe39b",
+    "/assets/audio/timbre-escuela-japonesa.mp3": "d85da02a50c56cf58acf406669b0ab0bc5738bf9",
+    "/assets/icons/icon-128x128.png": "b1f06c7d714abb4a0cc4d1f7c954feb26826e4c4",
+    "/assets/icons/icon-144x144.png": "96a0d629765c1bc85d9263c6bc83094ca776d267",
+    "/assets/icons/icon-152x152.png": "b1fbbee3902eb96a7658e3bb006f31f78ca5a44c",
+    "/assets/icons/icon-192x192.png": "e4211163bf0911688fbfb80278d8ff4d2f77691d",
+    "/assets/icons/icon-384x384.png": "329749cd6393768d3131ed6304c136b1ca05f2fd",
+    "/assets/icons/icon-512x512.png": "559d9c4318b45a1f2b10596bbb4c960fe521dbcc",
+    "/assets/icons/icon-72x72.png": "279825a1ac4377032ae996a1832c641e33ccf1b6",
+    "/assets/icons/icon-96x96.png": "592885efcbfee27e5e20be4fa3043589390d2740",
+    "/assets/img/pomodoro.png": "1e9094b495d57aa5a5482704c166a184e146d20a",
+    "/color.dae87a04d07ca92b.png": "ff4c4bcb2207891b292f544edb4da9d2df5d45cf",
+    "/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
+    "/hue.8b1818380241e6ac.png": "f81ae627637a684614aa726e206c73ce099a01fd",
+    "/index.html": "dda13193d60d5cf36a9b03db93f11ecdc4800675",
+    "/main.afbd7a0147871022.js": "441bd55ff9d125cb144948b236baa9f21c554e3d",
+    "/manifest.webmanifest": "22de217c2a9881adafb5aae6c729b33da4db880f",
+    "/polyfills.5569cdca7c83d3e2.js": "dc449f433f85de7cee682427bd4941304663fde0",
+    "/runtime.b58fb086490cf3ff.js": "3ea6c349b3bdcf6899204bec47351e84befc2618",
+    "/styles.40ee1725a23eabf8.css": "885f0400f038385dab2d7ddeb942c08c694a81a6"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ],
+  "navigationRequestStrategy": "performance"
+}

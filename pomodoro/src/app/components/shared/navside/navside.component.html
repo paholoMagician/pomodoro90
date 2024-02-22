@@ -1,19 +1,43 @@
 
-    <div class="d-flex justify-content-between align-items-center m-1 w-100">
-        <div class="fs-3">
-            <img src="../../../../assets/img/pomodoro.png" width="250px" height="auto" >
+<div class="d-flex justify-content-between align-items-center m-1 w-100">
+    <div>
+        <div style="transition: ease all 1s;">
+            <img src="../../../../assets/img/pomodoro.png" class="img-logo">
         </div>
-        <div class="d-flex" >
-            <button class="buttons-systems d-flex align-items-center m-1"
-                    (click)="openDataEquiposDialog()"
-                    >
-                    <mat-icon>settings</mat-icon> <span class="_msj_button" *ngIf="_msj_button"> Configuración </span>
-            </button>
-             <!-- <button class="buttons-systems d-flex align-items-center m-1">
-                <mat-icon>bar_chart</mat-icon> <span class="_msj_button"> Report </span>
-            </button> -->
-            <!--<button class="buttons-systems d-flex align-items-center m-1">
-                <mat-icon>account_circle</mat-icon> Login
-            </button> -->        
+        <div class="fs-6 mt-2 animate__animated animate__bounceIn " *ngIf="usuario_listen != undefined ">
+            <span style="color: yellowgreen; font-style: italic;" > Bienvenido <strong> {{ usuario_listen | uppercase }} </strong> ! </span>
+        </div>
+    </div>
+
+    <div class="d-flex" >
+        <button class="buttons-systems d-flex align-items-center m-1 text-light"
+                (click)="openDataEquiposDialog()">
+                <mat-icon>settings</mat-icon>
+                <span class="_msj_button"
+                      *ngIf="_msj_button">
+                      Configuración
+                </span>
+        </button>
+         <!-- <button class="buttons-systems d-flex align-items-center m-1">
+            <mat-icon>bar_chart</mat-icon> <span class="_msj_button"> Report </span>
+        </button> -->
+        <button class="buttons-systems-c-s d-flex align-items-center m-1 text-light "
+                (click)="cerrarSession()"
+                *ngIf="usuario_listen != undefined">
+                <mat-icon>close</mat-icon> 
+                <span class="_msj_button"
+                      *ngIf="_msj_button">
+                      Cerrar sesión
+                </span>
+        </button>
+        <button class="buttons-systems d-flex align-items-center m-1 text-light "
+                *ngIf="usuario_listen == undefined || usuario_listen == null"
+                (click)="openDataLogin()" >
+                <mat-icon>account_circle</mat-icon> 
+                <span class="_msj_button"
+                      *ngIf="_msj_button">
+                      Login
+                </span>
+        </button>
     </div>
 </div>

@@ -50,7 +50,7 @@ export class LongBreakComponent implements OnInit, OnChanges {
         } else {
           if (this.pomodoroMinutesCicle > 0) {
             this.pomodoroMinutesCicle--;
-            this.segundos = 3;
+            this.segundos = 59;
           } else {
             clearInterval(this.timer);
             let xcount:       any = localStorage.getItem('cicloCount');

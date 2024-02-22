@@ -11,7 +11,7 @@ export class Environments implements OnInit {
     readonly seed:    number = 10;
     readonly hashlvl: number = 20;
 
-    private apiUrl: any = 'http://localhost:9080/'
+    private apiUrl: any = 'https://localhost:7171/'
     // private apiUrl: any = 'https://08549b20f27b.ngrok.app/';
 
     public temasPrincipalApp: any = [{   

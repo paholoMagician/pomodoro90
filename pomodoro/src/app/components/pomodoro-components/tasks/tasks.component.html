@@ -1,10 +1,116 @@
+<div class="spinner-overlay"  *ngIf="_show_spinner">
+    <div class="spinner-container">
+        <span class="loader"></span>
+    </div>
+</div>
+<div class="offcanvas offcanvas-end"  tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+    <div class="offcanvas-header d-flex align-items-center">
+      <div id="offcanvasRightLabel" class="text-light fs-4 d-flex align-items-center">
+        <span> Tareas registradas </span>        
+        &nbsp;
+        <strong class="text-warning">
+            ( {{ listaPomodoro.length }} ) </strong>
+        </div>
+      <button type="button" class="btn-close text-reset text-light" data-bs-dismiss="offcanvas" aria-label="Close">
+        <mat-icon style="color: white;" >cancel</mat-icon>
+      </button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="table-responsive" >
+        <div class="filterPomodoro m-2 text-light" >
+        </div>
+        <table class="table table-bordered table-success table-striped align-middle shadow-sm rounded-3 " style="border-top-left-radius: 10px; border-top-right-radius: 10px;" >
+            <thead class="bg-warning text-dark align-middle" style="border-top-left-radius: 10px; border-top-right-radius: 10px;">
+                <th style="border-top-left-radius: 10px !important;" >
+
+                </th>
+                <th>
+                    Tarea
+                </th>
+                <th>
+                    Ciclos
+                </th>
+                <th>
+                    Fecha
+                </th>
+                <th title="Pomodoro Minutes">
+                    P. Min.
+                </th>
+                <th title="Short Break Minutes">
+                    S.B. Min.
+                </th>
+                <th title="Large Break Minutes" style="border-top-right-radius: 10px !important;" >
+                    L.B. Min.
+                </th>
+
+            </thead>
+            <tbody>
+                <tr *ngFor="let listaTasks of listaPomodoro" >
+                    <td>
+                        <div class="" (click)="eliminarPom(listaTasks.id)" >
+                            <mat-icon>delete</mat-icon>
+                        </div>
+                    </td>
+                    <td [title]="listaTasks.descripciontarea" >
+                        {{ listaTasks.nombretarea }}
+                    </td>
+                    <td>
+                        {{ listaTasks.ciclos }}
+                    </td>
+                    <td>
+                        {{ listaTasks.fechacrea | date: 'dd-MM-yyyy' }}
+                    </td>
+                    <td>
+                        <div class="d-flex flex-column">
+                            <span>
+                                {{ listaTasks.pomomin }}
+                            </span>
+                            <span>
+                                {{ listaTasks.pomominterminal }}
+                            </span>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="d-flex flex-column">
+                            <span>
+                                {{ listaTasks.sbreakmin }}
+                            </span>
+                            <span>
+                                {{ listaTasks.sbreakminterminal }}
+                            </span>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="d-flex flex-column">
+                            <span>
+                                {{ listaTasks.lognbreakmin }}
+                            </span>
+                            <span>
+                                {{ listaTasks.lognbreakminterminal }}
+                            </span>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+      </div>
+    </div>
+</div>
 <div class="box-tasks d-flex flex-column align-items-center mt-2">
+
     <div>
-        <span class="fs-5"> Ciclos del pomodoro: <strong> {{count}} /  {{ cicloCount }} </strong> </span>
+        <span class="fs-5">
+            <span> Ciclos del pomodoro: </span>
+            <strong> {{count}} /  {{ cicloCount }} </strong>
+        </span>
     </div>
     
     <div class="add-tasks mt-2 d-flex justify-content-start align-items-center">
-        <div class="menu-btn" 
+        <div class="menu-btn" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"
+             style="padding: 10px; border-radius: 5px; background-color: rgba(234, 197, 9, 0.961); color: rgb(46, 46, 46);">
+             <mat-icon>list_alt</mat-icon>
+        </div>
+        <div class="menu-btn"
             (click)="menu.toggle($event)"
             style="padding: 10px; border-radius: 5px; background-color: rgba(0, 0, 0, 0.525); color: whitesmoke;">
             <mat-icon>more_vert</mat-icon>
@@ -12,7 +118,9 @@
         </div>
         &nbsp;&nbsp;
         <div class="fs-6">
-            <strong> Tarea cumpliendo actualmente: <strong class="text-light" > {{ tarea | uppercase }} </strong> </strong>
+            <strong> Tarea cumpliendo actualmente:
+                <span class="text-light" > {{ tarea | uppercase }} </span>
+            </strong>
         </div>
     </div>
 

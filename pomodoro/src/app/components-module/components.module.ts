@@ -130,12 +130,14 @@ import { BlockUIModule } from 'primeng/blockui';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { RippleModule } from 'primeng/ripple';
 import { ModalConfiguracionesComponent } from '../components/shared/modals/modal-configuraciones/modal-configuraciones.component';
+import { LoginModalComponent } from '../components/dashboard/login-modal/login-modal.component';
 
 
 @NgModule({
   
   declarations: [
     LoginComponent,
+    LoginModalComponent,
     PomodoroComponentsComponent,
     PomodoroComponent,
     ShortBreakComponent,
@@ -143,7 +145,7 @@ import { ModalConfiguracionesComponent } from '../components/shared/modals/modal
     NavsideComponent,
     DashboardComponent,
     TasksComponent,
-    ModalConfiguracionesComponent
+    ModalConfiguracionesComponent,
   ],
 
   imports: [

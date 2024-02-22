@@ -38,6 +38,45 @@ export class ShortBreakComponent implements OnInit, OnChanges {
       }
   }
 
+  // sendNotification(): void {
+  //   // Verifica si el Service Worker está habilitado
+  //   if (this.swPush.isEnabled) {
+  //     const notificationOptions: NotificationOptions = {
+  //       body: 'Tu tarea ha terminado',
+  //       icon: 'assets/notification-icon.png' // Reemplaza esto con la ruta de tu icono de notificación
+  //     };
+      
+  //     // Envia un mensaje al service worker para que maneje la notificación
+  //     navigator.serviceWorker.controller.postMessage({
+  //       type: 'sendNotification',
+  //       notificationOptions: notificationOptions
+  //     });
+  //   }
+  // }
+  
+  
+  // ssendNotification(): void {
+  //   // Verifica si el Service Worker está habilitado
+  //   if (this.swPush.isEnabled) {
+  //     const notificationOptions: NotificationOptions = {
+  //       body: 'Tu tarea ha terminado',
+  //       icon: 'assets/notification-icon.png' // Reemplaza esto con la ruta de tu icono de notificación
+  //     };
+      
+  //     // Solicita una suscripción para recibir notificaciones push
+  //     this.swPush.requestSubscription({ serverPublicKey: 'BHKgyYWZCd6f6gc5rcllVm79dfXMTzZWROGo512h8xikyCYAdQcjeVqn6m2PdLSC4vuz5cmAiaDPowi48DQ9pPc' })
+  //       .then(subscription => {
+  //         // Envía la notificación utilizando la suscripción obtenida
+  //         this.swPush.messages.next({ notification: notificationOptions, subscription: subscription });
+  //       })
+  //       .catch(error => {
+  //         console.error('Error al solicitar la suscripción para notificaciones push:', error);
+  //       });
+  //   }
+  // }
+  
+  
+
   isRunning: boolean = false; // Variable booleana para controlar si el temporizador está en ejecución o pausado
   startTimer(): void {
     
@@ -49,7 +88,7 @@ export class ShortBreakComponent implements OnInit, OnChanges {
         } else {
           if (this.pomodoroBreakMinutesCicle > 0) {
             this.pomodoroBreakMinutesCicle--;
-            this.segundos = 3;
+            this.segundos = 59;
           } else {
             
             clearInterval(this.timer);
@@ -65,37 +104,24 @@ export class ShortBreakComponent implements OnInit, OnChanges {
               this.cicloCountActual.emit(xcountActual);
             }
 
-            else if ( xcount === xcountActual ) {
-              
+            else if (xcount === xcountActual) {
               Swal.fire({
-                position: "center",
-                icon: "success",
-                title: "Tu tarea ha terminado",
+                position: 'center',
+                icon: 'success',
+                title: 'Tu tarea ha terminado',
                 showConfirmButton: false,
                 timer: 2000
               });
-
-              localStorage.setItem('countCicloActual', (1).toString());
-              localStorage.setItem('cicloCount', (1).toString());
+              
+              // Envía la notificación al usuario
+              // this.sendNotification();
+        
+              localStorage.setItem('countCicloActual', '1');
+              localStorage.setItem('cicloCount', '1');
               localStorage.setItem('tarea', '');
-
-              if (this.swPush.isEnabled) {
-                this.swPush.requestSubscription({
-                  serverPublicKey: 'BHKgyYWZCd6f6gc5rcllVm79dfXMTzZWROGo512h8xikyCYAdQcjeVqn6m2PdLSC4vuz5cmAiaDPowi48DQ9pPc'
-                })
-                .then(subscription => {
-                  // Envía la notificación push
-                  this.swPush.messages.subscribe(message => {
-                    // Aquí puedes manejar el mensaje recibido si lo deseas
-                    console.log(message);
-                  });
-                  return subscription;
-                })
-                .catch(error => console.error(error));
-              }
-
-              this.dataTasksActualicer.emit( { countCicloActual: 0, cicloCount: 0, tarea: '' } )
+              this.dataTasksActualicer.emit({ countCicloActual: 0, cicloCount: 0, tarea: '' });
               this.finishPomodoroShortBreakEvent.emit(0);
+              
             }
           }
         }
